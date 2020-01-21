@@ -13,6 +13,7 @@ const CardArray = () => {
           has_spoiler={item.has_spoiler} 
           img_url={item.img_url}
           comment_size={item.comment_size}
+          id={item.id}
         />
         </div>
       ))}
@@ -24,6 +25,7 @@ export { CardArray };
 
 const cardDummy = [
   {
+    id: 1,
     title: "ggg",
     author: "happy",
     has_spoiler: false,
@@ -31,6 +33,7 @@ const cardDummy = [
     comment_size: 3,
     created_at: "2020-01-06T053628"
   },{
+    id: 2,
     title: "ggg",
     author: "happy",
     has_spoiler: true,
@@ -38,6 +41,7 @@ const cardDummy = [
     comment_size: 3,
     created_at: "2020-01-06T053622"
   },{
+    id: 3,
     title: "ggg",
     author: "happy",
     has_spoiler: false,
@@ -45,6 +49,7 @@ const cardDummy = [
     comment_size: 3,
     created_at: "2020-01-06T053428"
   },{
+    id: 4,
     title: "ggg",
     author: "happy",
     has_spoiler: true,
@@ -52,6 +57,7 @@ const cardDummy = [
     comment_size: 3,
     created_at: "2020-01-06T053258"
   },{
+    id: 5,
     title: "ggg",
     author: "happy",
     has_spoiler: false,
@@ -59,6 +65,15 @@ const cardDummy = [
     comment_size: 3,
     created_at: "2020-01-06T024028"
   },{
+    id: 6,
+    title: "ggg",
+    author: "happy",
+    has_spoiler: false,
+    img_url: "https://images.unsplash.com/photo-1568814176122-2bd797593bcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    comment_size: 3,
+    created_at: "2020-01-06T059828"
+  },{
+    id: 7,
     title: "ggg",
     author: "happy",
     has_spoiler: false,
