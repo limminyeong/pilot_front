@@ -2,15 +2,20 @@
 
 .Card {
   position: relative;
-  border: 1px solid $pilot-grey;
+  box-sizing: border-box;
+  padding: 15px 15px 15px 15px;
+
   border-radius: 8px;
   width: 100%;
   height: 100%;
+
+  text-align: end;
+  //filter: grayscale(100%);
 }
 
 .Card__background {
   border-radius: 8px;
-  background-color: white;
+  background-color: #f1f1f1;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,13 +27,23 @@
     width: 100%;
     filter: grayscale(100%);
   }
+}
+.Card__background:hover {
+  transition-duration: 300ms;
+  background-color: #ddd;
   img:hover {
     opacity: 0.4;
     filter: none;
-    transition-duration: 300ms;
   }
+
 }
 .Card__contents {
   position: relative;
-  z-index: 10;
+  display: inline-block;
+  //z-index: 10;
+
+  .Card__title {
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
