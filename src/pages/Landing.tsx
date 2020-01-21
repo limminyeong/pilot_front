@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Landing = () => (
-  <div>Landing</div>
+import { Landing } from '../containers/Landing'
+
+const IndexPage = () => (
+  <Landing />
 )
 
-export default Landing;
+export default IndexPage;

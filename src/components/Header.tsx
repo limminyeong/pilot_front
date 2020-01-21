@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import './Header.scss';
 
 const Header = () => {
   return (
     <div className="Header">
-      NO SPOILER ALLOWED
+      <Link to="/">NO SPOILER ALLOWED</Link>
     </div>
   )
 }
