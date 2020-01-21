@@ -1,8 +1,12 @@
 import React from 'react';
 
+import './Header.scss';
+
 const Header = () => {
   return (
-    <div>Header</div>
+    <div className="Header">
+      NO SPOILER ALLOWED
+    </div>
   )
 }
 
