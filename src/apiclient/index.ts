@@ -3,13 +3,13 @@ const BASE_URL = "http://127.0.0.1:3000";
 export type ReviewData = {
   title: string,
   author: string,
-  categoryId: number,
-  hasSpoiler: boolean,
-  imgUrl: string,
+  category_id: number,
+  has_spoiler: boolean,
+  img_url: string,
   id: number,
   comments: any[],
-  createdAt: string,
-  updatedAt: string,
+  created_at: string,
+  updated_at: string,
 }
 
 export type ReviewList = ReviewData[]
@@ -17,21 +17,11 @@ export type ReviewList = ReviewData[]
 async function getReviews(page: number): Promise<ReviewList> {
   const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
   if (res.status !== 200) {
-    throw Error("sth wrong")
+    throw Error();
   }
   const data = await res.json();
-  return [{
-    id: data.id,
-    title: data.title,
-    author: data.author,
-    categoryId: data.category_id,
-    imgUrl: data.img_url,
-    hasSpoiler: data.has_spoiler,
-    createdAt: data.created_at,
-    updatedAt: data.updated_at,
-    comments: data.comments
-  }]
+  return data;
 }
 
 
-export { getReviews };
+export default { getReviews };

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const WriteButton = () => {
   return (
     <div className="WriteButton">
-      <Link to="/review/new">
+      <Link to="/reviews/new">
         <button className="WriteButton__button">
           글쓰기
         </button>
