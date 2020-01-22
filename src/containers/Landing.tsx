@@ -1,9 +1,14 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import "./Landing.scss";
+
 import { WriteButton } from '../components/WriteButton';
 import { CardArray } from '../components/CardArray';
+
 const Landing = () => {
+  useEffect(()=> {
+
+  })
+
 
   return (
     <div className="Landing">

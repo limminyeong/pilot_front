@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Header />
         <Route exact path="/" component={IndexPage}/>
         <Route path="/review/:review_id" component={Detail} />
-        <Route path="/new" component={CreateReview} />
+        <Route path="/review/new" component={CreateReview} />
       </Router>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./Card.scss";
 import { Link } from 'react-router-dom';
-import { url } from 'inspector';
+//import { url } from 'inspector';
 
 const Card = (props: { title: string, has_spoiler: boolean, author: string, img_url: string, comment_size: number, id: number }) => {
   const { title, author, has_spoiler, img_url, comment_size, id } = props;

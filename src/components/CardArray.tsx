@@ -5,8 +5,8 @@ import { Card } from './Card';
 const CardArray = () => {
   return (
     <div className="CardArray">
-      {cardDummy.map(item => (
-        <div key={item.created_at} className="CardArray__wrapper">
+      {cardDummy.map((item, i) => (
+        <div key={i} className="CardArray__wrapper">
         <Card
           title={item.title}
           author={item.author}
