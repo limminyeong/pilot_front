@@ -1,8 +1,10 @@
 import React from 'react';
+import { Review } from "../containers/Review";
 
-const Detail = ({match}: any) => {
+const Detail = ({ match }: any) => {
+  const reviewId = match.params.review_id;
   return (
-  <div>{match.params.review_id}</div>
+    <Review reviewId={reviewId} />
   )
 }
 

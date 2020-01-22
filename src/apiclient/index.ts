@@ -12,7 +12,10 @@ export type ReviewData = {
   updated_at: string,
 }
 
-export type ReviewList = ReviewData[]
+export type ReviewList = {
+  reviews: ReviewData[],
+  total: number,
+}
 
 async function getReviews(page: number): Promise<ReviewList> {
   const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
@@ -20,8 +23,29 @@ async function getReviews(page: number): Promise<ReviewList> {
     throw Error();
   }
   const data = await res.json();
-  return data;
+  return {
+    reviews: data.reviews,
+    total: data.review_count.total,
+  };
 }
 
+async function getReview(id:number): Promise<ReviewData> {
+  const res = await fetch(`${BASE_URL}/reviews/${id}`);
+  const data = await res.json();
+  return {
+    title: data.title,
+    author: data.author,
+    category_id: data.category_id,
+    has_spoiler: data.has_spoiler,
+    img_url: data.img_url,
+    id: data.id,
+    comments: data.comments,
+    created_at: data.created_at,
+    updated_at: data.updated_at
+  }
+}
 
-export default { getReviews };
+export default { 
+  getReviews,
+  getReview 
+};
