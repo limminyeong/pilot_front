@@ -24,11 +24,12 @@
   overflow: hidden;
   background-position: center;
   background-size: cover;
-  
+  filter: grayscale(100%);
 }
 .Card__background:hover {
   transition-duration: 300ms;
   background-color: #ddd;
+  filter: grayscale(60%);
 }
 .Card__contents {
   position: relative;
