@@ -7,10 +7,9 @@ const ReviewCard = (props: {
   content: string,
   createdAt: string,
   updatedAt: string,
-  comments: any[],
   imgUrl: string
 }) => {
-  const { title, author, content, createdAt, updatedAt, comments, imgUrl } = props;
+  const { title, author, content, createdAt, updatedAt, imgUrl } = props;
 
   return (
     <div className="ReviewCard">

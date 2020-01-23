@@ -8,7 +8,7 @@ export type ReviewData = {
   img_url: string,
   content: string,
   id: number,
-  comments: any[],
+  comments: CommentData[],
   created_at: string,
   updated_at: string,
 }
@@ -18,11 +18,15 @@ export type ReviewList = {
   total: number,
 }
 
+export type CommentData = {
+  id: number,
+  commenter: string,
+  content: string,
+  password: string,
+}
+
 async function getReviews(page: number): Promise<ReviewList> {
   const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
-  if (res.status !== 200) {
-    throw Error();
-  }
   const data = await res.json();
   return {
     reviews: data.reviews,
@@ -47,7 +51,22 @@ async function getReview(id:number): Promise<ReviewData> {
   }
 }
 
+async function postComment(id: number, commmentValue: { commenter: string; content: string; password: string; }) {
+  const body = new FormData();
+  body.append("commenter", commmentValue.commenter);
+  body.append("content", commmentValue.content);
+  body.append("password", commmentValue.password);
+
+  const res = await fetch(`${BASE_URL}/reviews/${id}/comments`, {
+    body,
+    method: "POST",
+  });
+
+  return await res.json();
+}
+
 export default { 
   getReviews,
-  getReview 
+  getReview,
+  postComment,
 };

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Post } from '../containers/Post';
 
 const CreateReview = () => (
-  <div>new review</div>
+  <Post />
 )
 
 export default CreateReview;

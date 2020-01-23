@@ -40,8 +40,12 @@ const Landing = () => {
 
   return (
     <div className="Landing">
-      <WriteButton />
-      {reviewList && <CardList reviews={reviewList.reviews} />}
+      <div className="Landing__write">
+        <WriteButton />
+      </div>
+      <div className="Landing__cardlist">
+        {reviewList && <CardList reviews={reviewList.reviews} />}
+      </div>
       {reviewList && <Pagenation
         pages={pages}
         handlePage={handlePage}
