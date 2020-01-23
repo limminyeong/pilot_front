@@ -51,6 +51,12 @@ async function getReview(id:number): Promise<ReviewData> {
   }
 }
 
+export type PostCommentData = {
+  commenter: string,
+  content: string,
+  password: string,
+}
+
 async function postComment(id: number, commmentValue: { commenter: string; content: string; password: string; }) {
   const body = new FormData();
   body.append("commenter", commmentValue.commenter);
@@ -65,8 +71,36 @@ async function postComment(id: number, commmentValue: { commenter: string; conte
   return await res.json();
 }
 
+export type PostReviewData = {
+  title: string,
+  author: string,
+  categoryId: number,
+  hasSpoiler: boolean,
+  imgUrl: string,
+  content: string,
+  password: string,
+}
+
+async function postReview(reviewValue: PostReviewData) {
+  const body = new FormData();
+  body.append("title", reviewValue.title);
+  body.append("author", reviewValue.author);
+  body.append("category_id", String(reviewValue.categoryId));
+  body.append("has_spoiler", String(reviewValue.hasSpoiler));
+  body.append("img_url", reviewValue.imgUrl);
+  body.append("content", reviewValue.content);
+  body.append("password", reviewValue.password);
+
+  const res = await fetch(`${BASE_URL}/reviews`, {
+    body,
+    method: "POST",
+  })
+  return await res.json();
+}
+
 export default { 
   getReviews,
   getReview,
   postComment,
+  postReview,
 };

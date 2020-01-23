@@ -1,9 +1,9 @@
 import React from 'react';
-import './CommentBox.scss';
+import './CommentForm.scss';
 import { CommentData } from '../apiclient';
 
 
-const CommentBox = (props: {comments: CommentData[]}) => {
+const CommentForm = (props: {comments: CommentData[]}) => {
   const {comments} = props;
   return (
     <div className="CommentBox">
@@ -16,4 +16,4 @@ const CommentBox = (props: {comments: CommentData[]}) => {
     </div>
   )
 }
-export { CommentBox };
+export { CommentForm };

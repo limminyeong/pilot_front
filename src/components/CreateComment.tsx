@@ -7,17 +7,11 @@ import {
   Field,
   ErrorMessage,
 } from 'formik';
+import { PostCommentData } from '../apiclient'
 
-type CommentValues = {
-  commenter: string,
-  content: string,
-  password: string,
-}
-
-
-const CreateComment = (props: {addComment: any}) => {
-  const {addComment} = props;
-  const initialValues: CommentValues = { commenter: "작성자", content: "내용", password: "" }
+const CreateComment = (props: { addComment: (commentValue: PostCommentData) => Promise<void> }) => {
+  const { addComment } = props;
+  const initialValues: PostCommentData = { commenter: "", content: "", password: "" }
   return (
     <div className="CreateComment">
       <Formik
@@ -35,7 +29,7 @@ const CreateComment = (props: {addComment: any}) => {
           }
           return errors;
         }}
-        onSubmit={(values: CommentValues, { setSubmitting }) => {
+        onSubmit={(values: PostCommentData, { setSubmitting }) => {
           setTimeout(() => {
             addComment(values);
             setSubmitting(false);
@@ -44,9 +38,9 @@ const CreateComment = (props: {addComment: any}) => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field type="text" name="commenter" />
+            <Field type="text" name="commenter" placeholder="작성자" />
             <ErrorMessage name="commenter" component="div" />
-            <Field type="text" name="content" />
+            <Field type="text" name="content" placeholder="따뜻한 한 마디는 작성자에게 힘이 됩니다."/>
             <ErrorMessage name="content" component="div" />
             <Field type="password" name="password" />
             <ErrorMessage name="password" component="div" />

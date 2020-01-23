@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import apiclient, { ReviewData, CommentData } from '../apiclient';
+import apiclient, { ReviewData, CommentData, PostCommentData } from '../apiclient';
 import { ReviewCard } from '../components/ReviewCard';
-import { CommentBox } from '../components/CommentBox';
+import { CommentForm } from '../components/CommentForm';
 import { CreateComment } from '../components/CreateComment';
 
 
@@ -20,11 +20,14 @@ const Review = (props: { reviewId: string }) => {
       console.log(error)
     }
   }
-  const addComment = async (commentValue: CommentData) => {
-    //ev.preventDefault();
-    const id = Number(reviewId)
-    await apiclient.postComment(id, commentValue);
-    getReview(id);
+  const addComment = async (commentValue: PostCommentData) => {
+    try {
+      const id = Number(reviewId)
+      await apiclient.postComment(id, commentValue);
+      getReview(id);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -42,7 +45,7 @@ const Review = (props: { reviewId: string }) => {
           imgUrl={reviewData.img_url}
         />}
       <hr />
-      {commentsData && <CommentBox comments={commentsData} />}
+      {commentsData && <CommentForm comments={commentsData} />}
       <CreateComment addComment={addComment}/>
     </div>
   )
