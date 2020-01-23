@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import apiclient, { ReviewData } from '../apiclient';
+import { ReviewCard } from '../components/ReviewCard'
 
 
 const Review = (props: { reviewId: string }) => {
@@ -17,9 +18,20 @@ const Review = (props: { reviewId: string }) => {
   }
   useEffect(() => {
     getReview(Number(reviewId))
-  },[reviewId])
+  }, [reviewId])
   return (
-    <div>{reviewId}</div>
+    <div className="Review">
+      {reviewData && 
+      <ReviewCard 
+      title={reviewData.title}
+      author={reviewData.author}
+      content={reviewData.content}
+      createdAt={reviewData.created_at}
+      updatedAt={reviewData.updated_at}
+      comments={reviewData.comments}
+      imgUrl={reviewData.img_url}
+       />}
+    </div>
   )
 }
 

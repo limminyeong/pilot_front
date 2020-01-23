@@ -4,7 +4,7 @@ import "./Landing.scss";
 import apiclient, { ReviewList } from '../apiclient';
 
 import { WriteButton } from '../components/WriteButton';
-import { CardArray } from '../components/CardArray';
+import { CardList } from '../components/CardList';
 import { Pagenation } from '../components/Pagenation';
 
 const Landing = () => {
@@ -41,7 +41,7 @@ const Landing = () => {
   return (
     <div className="Landing">
       <WriteButton />
-      {reviewList && <CardArray reviews={reviewList.reviews} />}
+      {reviewList && <CardList reviews={reviewList.reviews} />}
       {reviewList && <Pagenation
         pages={pages}
         handlePage={handlePage}

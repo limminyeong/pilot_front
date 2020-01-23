@@ -1,9 +1,9 @@
 import React from 'react';
-import "./CardArray.scss";
+import "./CardList.scss";
 import { Card } from './Card';
 import { ReviewData } from '../apiclient';
 
-const CardArray = (props: { reviews: ReviewData[] }) => {
+const CardList = (props: { reviews: ReviewData[] }) => {
   const { reviews } = props;
   return (
     <div className="CardArray">
@@ -23,4 +23,4 @@ const CardArray = (props: { reviews: ReviewData[] }) => {
   )
 }
 
-export { CardArray };
+export { CardList };
