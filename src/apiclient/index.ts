@@ -86,7 +86,7 @@ async function postReview(reviewValue: PostReviewData) {
   body.append("title", reviewValue.title);
   body.append("author", reviewValue.author);
   body.append("category_id", String(reviewValue.categoryId));
-  body.append("has_spoiler", String(reviewValue.hasSpoiler));
+  body.append("has_spoiler", JSON.stringify(reviewValue.hasSpoiler));
   body.append("img_url", reviewValue.imgUrl);
   body.append("content", reviewValue.content);
   body.append("password", reviewValue.password);

@@ -8,8 +8,11 @@ const Card = (props: { title: string, hasSpoiler: boolean, author: string, imgUr
   return (
     <Link to={`/review/${id}`}>
     <div className="Card">
-      <div className="Card__background" >
-        {imgUrl.length > 0 && <img src={imgUrl} alt={title} />}
+      <div 
+      className="Card__background"
+      style={{
+        backgroundImage: `url(${imgUrl})`
+      }} >
       </div>
       <div className="Card__contents">
         <div className="Card__title">{title}</div>

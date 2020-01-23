@@ -22,20 +22,13 @@
   left: 0;
   right: 0;
   overflow: hidden;
-  img {
-    opacity: 0.3;
-    width: 100%;
-    filter: grayscale(100%);
-  }
+  background-position: center;
+  background-size: cover;
+  
 }
 .Card__background:hover {
   transition-duration: 300ms;
   background-color: #ddd;
-  img:hover {
-    opacity: 0.4;
-    filter: none;
-  }
-
 }
 .Card__contents {
   position: relative;
