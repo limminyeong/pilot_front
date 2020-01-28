@@ -1,0 +1,28 @@
+@import "../../styles.scss";
+
+.ReviewForm {
+  position: relative;
+  text-align: left;
+
+  form {
+    input {
+      display: block;
+      margin-bottom: 12px;
+      padding: 4px 8px 4px 8px;
+      border: none;
+      border-bottom: 1px solid $pilot-grey;
+    }
+
+    select {
+      appearance: none;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      border-radius: 0 0 0 0;
+      padding: 4px 8px 4px 8px;
+      border: none;
+      border-bottom: 1px solid $pilot-grey;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

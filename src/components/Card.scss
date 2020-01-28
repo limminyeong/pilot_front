@@ -10,12 +10,12 @@
   height: 100%;
 
   text-align: end;
-  //filter: grayscale(100%);
 }
 
 .Card__background {
   border-radius: 8px;
-  background-color: #f1f1f1;
+  background-color: #dfdfdf;
+  opacity: 0.4;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -27,17 +27,51 @@
   filter: grayscale(100%);
 }
 .Card__background:hover {
+  opacity: 0.6;
   transition-duration: 300ms;
-  background-color: #ddd;
+  ///background-color: #ddd;
   filter: grayscale(60%);
 }
+
 .Card__contents {
   position: relative;
   display: inline-block;
-  //z-index: 10;
 
   .Card__title {
     font-size: 18px;
     font-weight: bold;
+    //margin-bottom: 4px;
+  }
+  .Card__author {
+    margin-bottom: 12px;
+  }
+}
+
+.Card__info {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+
+  .Card__spoiler {
+    font-weight: bold;
+    img {
+      width: 12px;
+      vertical-align: middle;
+      padding-bottom: 2px;
+      margin-right: 4px;
+    }
+  }
+
+  .Card__comment {
+    font-weight: bold;
+    img {
+      width: 12px;
+      vertical-align: middle;
+      padding-bottom: 2px;
+      margin-right: 4px;
+    }
   }
 }

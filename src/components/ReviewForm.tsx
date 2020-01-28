@@ -9,8 +9,8 @@ import {
 } from 'formik';
 import { PostReviewData } from '../apiclient'
 
-const ReviewForm = (props: { addReview: (reviewValue: PostReviewData) => Promise<void> }) => {
-  const { addReview } = props;
+const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Promise<void> }) => {
+  const { handleReview } = props;
   const initialValues: PostReviewData = { title: "", author: "", password: "", content: "", imgUrl: "", categoryId: 1, hasSpoiler: false }
   const categories: {id: number, name: string}[] = [
     {
@@ -55,7 +55,7 @@ const ReviewForm = (props: { addReview: (reviewValue: PostReviewData) => Promise
         }}
         onSubmit={(values: PostReviewData, { setSubmitting }) => {
           setTimeout(() => {
-            addReview(values);
+            handleReview(values);
             setSubmitting(false);
           }, 400);
         }}
@@ -85,7 +85,7 @@ const ReviewForm = (props: { addReview: (reviewValue: PostReviewData) => Promise
 
             <Field type="text" name="imgUrl" placeholder="이미지 주소를 넣어주세요"/>
 
-            <Field type="password" name="password"/>
+            <Field type="password" name="password" placeholder="비밀번호"/>
             <ErrorMessage name="password" component="div" />
 
             <button type="submit" disabled={isSubmitting}>
