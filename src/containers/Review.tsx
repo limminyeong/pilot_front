@@ -1,15 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import './Review.scss'
 
 import apiclient, { ReviewData, CommentData, PostCommentData } from '../apiclient';
 import { ReviewCard } from '../components/ReviewCard';
 import { CommentForm } from '../components/CommentForm';
 import { CreateComment } from '../components/CreateComment';
+import { Button } from '../components/Button';
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
+//Modal.setAppElement('#checkModal')
 const Review = (props: { reviewId: string }) => {
   const { reviewId } = props;
   const [reviewData, setReviewData] = useState<ReviewData | null>(null)
   const [commentsData, setCommentsData] = useState<CommentData[] | null>(null)
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const getReview = async (id: number) => {
     try {
@@ -35,6 +59,18 @@ const Review = (props: { reviewId: string }) => {
   }, [reviewId])
   return (
     <div className="Review">
+      <Button
+        content="수정하기"
+        func={openModal}
+      />
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Password Check"
+        >
+
+      </Modal>
       {reviewData &&
         <ReviewCard
           title={reviewData.title}
@@ -46,7 +82,7 @@ const Review = (props: { reviewId: string }) => {
         />}
       <hr />
       {commentsData && <CommentForm comments={commentsData} />}
-      <CreateComment addComment={addComment}/>
+      <CreateComment addComment={addComment} />
     </div>
   )
 }

@@ -3,26 +3,75 @@
 .ReviewForm {
   position: relative;
   text-align: left;
-
+  padding: 24px 24px 24px 24px;
+  //background-color: #fafafa;
+  border: 1px solid $pilot-grey;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 12px 12px 0px 2px rgba($color: #000000, $alpha: 0.1);
   form {
     input {
-      display: block;
       margin-bottom: 12px;
       padding: 4px 8px 4px 8px;
       border: none;
       border-bottom: 1px solid $pilot-grey;
+      background-color: transparent;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .ReviewForm__title {
+      width: 80%;
+    }
+
+    .ReviewForm__imgUrl {
+      width: 80%;
+    }
+
+    textarea {
+      margin-bottom: 12px;
+      padding: 4px 8px 4px 8px;
+      border: 1px solid $pilot-grey;
+      width: 80%;
+    }
+    textarea:focus {
+      outline: none;
     }
 
     select {
       appearance: none;
+
       margin-right: 12px;
       margin-bottom: 12px;
+
+      width: 120px;
+
       border-radius: 0 0 0 0;
       padding: 4px 8px 4px 8px;
       border: none;
       border-bottom: 1px solid $pilot-grey;
       background-color: transparent;
       box-shadow: none;
+      background: url("/static/asset/arrow-down.svg") no-repeat 95% 50%; 
+      background-size: 12px;
+    }
+    select:focus {
+      outline: none;
+    }
+
+    .error {
+      margin-left: 12px;
+      color: $pilot-red-light;
+    }
+
+    .ReviewForm__submit {
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      background-color: $pilot-red-light;
+      padding: 8px 16px 8px 16px;
+      border-radius: 32px;
     }
   }
 }

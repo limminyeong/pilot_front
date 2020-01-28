@@ -98,9 +98,28 @@ async function postReview(reviewValue: PostReviewData) {
   return await res.json();
 }
 
+async function updateReview(reviewValue: PostReviewData, id:number) {
+  const body = new FormData();
+  body.append("id", String(id));
+  body.append("title", reviewValue.title);
+  body.append("author", reviewValue.author);
+  body.append("category_id", String(reviewValue.categoryId));
+  body.append("has_spoiler", JSON.stringify(reviewValue.hasSpoiler));
+  body.append("img_url", reviewValue.imgUrl);
+  body.append("content", reviewValue.content);
+  body.append("password", reviewValue.password);
+
+  const res = await fetch(`${BASE_URL}/reviews/${id}`, {
+    body,
+    method: "PUT",
+  })
+  return await res.json();
+}
+
 export default { 
   getReviews,
   getReview,
   postComment,
   postReview,
+  updateReview
 };

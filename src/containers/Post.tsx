@@ -7,7 +7,7 @@ const Post = () => {
   const addReview = async (reviewValue: PostReviewData) => {
     try {
       await apiclient.postReview(reviewValue);
-      window.open("/");
+      window.open("/","_self");
     } catch (error) {
       console.log(error)
     }

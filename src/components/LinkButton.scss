@@ -1,12 +1,20 @@
 @import "../../styles.scss";
-.WriteButton {
+.LinkButton {
 
-  .WriteButton__button {
+  .LinkButton__button {
     font-size: 14px;
     font-weight: bold;
     color: white;
     background-color: $pilot-red-deep;
     padding: 8px 16px 8px 16px;
     border-radius: 32px;
+  }
+  .light {
+    background-color: $pilot-red-light;
+  }
+
+  .LinkButton__button:hover {
+    transition-duration: 300ms;
+    opacity: 0.9;
   }
 }

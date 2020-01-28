@@ -3,7 +3,7 @@ import "./Landing.scss";
 
 import apiclient, { ReviewList } from '../apiclient';
 
-import { WriteButton } from '../components/WriteButton';
+import { LinkButton } from '../components/LinkButton';
 import { CardList } from '../components/CardList';
 import { Pagenation } from '../components/Pagenation';
 
@@ -41,7 +41,10 @@ const Landing = () => {
   return (
     <div className="Landing">
       <div className="Landing__write">
-        <WriteButton />
+        <LinkButton
+          link="/reviews/new"
+          content="글쓰기"
+          light={false} />
       </div>
       <div className="Landing__cardlist">
         {reviewList && <CardList reviews={reviewList.reviews} />}
