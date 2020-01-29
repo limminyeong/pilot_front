@@ -18,10 +18,25 @@
   .Comment__content {
     box-sizing: border-box;
     display: inline-block;
-    width: 85%;
+    width: 65%;
     vertical-align: top;
     //padding: 4px 8px 4px 8px;
     //border-bottom: 1px solid $pilot-grey;
     //border-radius: 8px 8px 8px 8px;
+  }
+  form {
+    display: inline-block;
+    width: 20%;
+    input {
+      padding-left: 4px;
+      padding-right: 4px;
+      margin-right: 8px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $pilot-grey;
+    }
+    input:focus {
+      outline: none;
+    }
   }
 }

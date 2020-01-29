@@ -29,8 +29,16 @@ export type CommentData = {
 }
 
 //GET
-async function getReviews(page: number): Promise<ReviewList> {
-  const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
+async function getReviews(page: number, categoryId: number): Promise<ReviewList> {
+  if (categoryId === 0) {
+    const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
+    const data = await res.json();
+    return {
+      reviews: data.reviews,
+      total: data.review_count.total,
+    };
+  }
+  const res = await fetch(`${BASE_URL}/reviews?page=${page}&category_id=${categoryId}`);
   const data = await res.json();
   return {
     reviews: data.reviews,
@@ -38,7 +46,7 @@ async function getReviews(page: number): Promise<ReviewList> {
   };
 }
 
-async function getReview(id:number): Promise<ReviewData> {
+async function getReview(id: number): Promise<ReviewData> {
   const res = await fetch(`${BASE_URL}/reviews/${id}`);
   const data = await res.json();
   return {
@@ -105,7 +113,7 @@ async function postReview(reviewValue: PostReviewData) {
 }
 
 //PUT
-async function updateReview(reviewValue: PostReviewData, id:number) {
+async function updateReview(reviewValue: PostReviewData, id: number) {
   const body = new FormData();
   body.append("id", JSON.stringify(id));
   body.append("title", reviewValue.title);
@@ -124,7 +132,7 @@ async function updateReview(reviewValue: PostReviewData, id:number) {
 }
 
 //DELETE
-async function deleteReview(value: {password:string}, id: number) {
+async function deleteReview(value: { password: string }, id: number) {
   const body = new FormData();
   body.append("password", value.password);
   const res = await fetch(`${BASE_URL}/reviews/${id}`, {
@@ -134,20 +142,20 @@ async function deleteReview(value: {password:string}, id: number) {
   return await res.json();
 }
 
-async function deleteComment(value: {password:string}, reviewId: number, id: number) {
+async function deleteComment(value: { password: string }, reviewId: number, id: number) {
   const body = new FormData();
   body.append("password", value.password);
   const res = await fetch(`${BASE_URL}/reviews/${reviewId}/comments/${id}`, {
     body,
     method: "DELETE",
   })
-  if(res.status !== 200) {
+  if (res.status !== 200) {
     return;
   }
   return res;
 }
 
-export default { 
+export default {
   getReviews,
   getReview,
   postComment,

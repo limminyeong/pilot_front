@@ -1,3 +1,4 @@
+@import "../../styles.scss";
 .Landing {
   padding-top: 120px;
 }
@@ -12,4 +13,20 @@
   display: flex;
   justify-content: center;
   min-height: 792px;
+}
+
+.Landing__buttongroup {
+  position: absolute;
+  top: 80px;
+  .Landing__category {
+    margin-right: 12px;
+    button {
+      font-weight: bold;
+      background-color: #ddd;
+    }
+    button:hover {
+      transition-duration: 300ms;
+      background-color: $pilot-red-light;
+    }
+  }
 }

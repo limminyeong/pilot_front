@@ -1,0 +1,15 @@
+@import "../../styles.scss";
+
+.CreateComment {
+  position: relative;
+  form {
+    //display: block;
+    input {
+      display: inline-block;
+      width: 30%;
+      border: none;
+      margin-right: 8px;
+      border-bottom: 1px solid $pilot-grey;
+    }
+  }
+}

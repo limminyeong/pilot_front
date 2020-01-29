@@ -42,7 +42,7 @@
 │   │   ├── CardList.scss
 │   │   ├── CardList.tsx
 │   │   ├── CheckModal.scss
-│   │   ├── CheckModal.tsx
+│   │   ├── CheckModal.tsx //리뷰 수정, 삭제 시 확인 모달
 │   │   ├── CommentForm.scss
 │   │   ├── CommentForm.tsx
 │   │   ├── CreateComment.scss
@@ -112,3 +112,6 @@ npm start
 
 
 ## Hooks, TS 사용 경험
+
+상태를 업데이트 할 때 편하다!!
+prevProps !== props.000 를 사용하지 않아도 된다!!!

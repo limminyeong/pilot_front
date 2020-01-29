@@ -12,10 +12,11 @@ const Landing = () => {
   const [reviewList, setReviewList] = useState<ReviewList | null>(null)
   const [page, setPage] = useState<number>(1)
   const [pages, setPages] = useState<number[]>([])
+  const [category, setCategory] = useState<number>(0)
 
-  const getReviewList = async (page: number) => {
+  const getReviewList = async (page: number, category: number) => {
     try {
-      const reviewList = await apiclient.getReviews(page);
+      const reviewList = await apiclient.getReviews(page, category);
       setReviewList(reviewList);
 
       const total = reviewList.total;
@@ -33,9 +34,13 @@ const Landing = () => {
     setPage(value);
   }
 
+  // const handleCategory = (value: number) => {
+  //   setCategory(value);
+  // }
+
   useEffect(() => {
-    getReviewList(page);
-  }, [page])
+    getReviewList(page, category);
+  }, [page, category])
 
 
   return (
@@ -45,6 +50,15 @@ const Landing = () => {
           link="/reviews/new"
           content="글쓰기"
           light={false} />
+      </div>
+      <div className="Landing__buttongroup">
+        {categories.map(category => (
+          <span key={category.id} className="Landing__category">
+            <button onClick={() => setCategory(category.id)}>
+              {category.name}
+            </button>
+          </span>
+        ))}
       </div>
       <div className="Landing__cardlist">
         {reviewList && <CardList reviews={reviewList.reviews} />}
@@ -57,5 +71,28 @@ const Landing = () => {
     </div>
   )
 }
+
+const categories: { id: number, name: string }[] = [
+  {
+    id: 0,
+    name: "All"
+  },
+  {
+    id: 1,
+    name: "영화"
+  }, {
+    id: 2,
+    name: "드라마"
+  }, {
+    id: 3,
+    name: "다큐멘터리"
+  }, {
+    id: 4,
+    name: "애니메이션"
+  }, {
+    id: 5,
+    name: "TV프로그램"
+  },
+];
 
 export { Landing };

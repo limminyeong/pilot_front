@@ -84,7 +84,7 @@ const Review = (props: { reviewId: string }) => {
   const deleteComment = async (value: { password: string }, id: number) => {
     try {
       await apiclient.deleteComment(value, Number(reviewId), id);
-      await getReview(id);
+      //await getReview(id);
     } catch (error) {
       console.log(error);
     }

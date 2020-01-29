@@ -4,7 +4,6 @@ import {
   Formik,
   Form,
   Field,
-  ErrorMessage,
 } from 'formik';
 import { CommentData } from '../apiclient';
 
@@ -42,10 +41,9 @@ const Comment = (props: {
             {({ isSubmitting }) => (
               <Form>
                 <Field type="password" name="password" placeholder="비밀번호" />
-                <ErrorMessage name="password" component="div" />
                 <button type="submit" disabled={isSubmitting}>
                   x
-            </button>
+                </button>
               </Form>
             )}
           </Formik>
