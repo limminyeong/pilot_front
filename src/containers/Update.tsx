@@ -10,7 +10,8 @@ const Update = (props: { reviewId: string }) => {
       await apiclient.updateReview(reviewValue, Number(reviewId));
       window.open("/","_self");
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      window.open("/","_self");
     }
   }
   return (

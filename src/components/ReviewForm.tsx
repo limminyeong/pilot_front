@@ -81,7 +81,7 @@ const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Prom
               </Field>
             </div>
             <div className="ReviewForm__field">
-              <textarea name="content" rows={15} placeholder="내용"  className="ReviewForm__content"/>
+              <Field as="textarea" name="content" rows={15} placeholder="내용"  className="ReviewForm__content"/>
               <ErrorMessage name="content" component="span" className="error" />
             </div>
             <div className="ReviewForm__field">

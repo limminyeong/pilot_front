@@ -3,17 +3,18 @@ import './CommentForm.scss';
 import { CommentData } from '../apiclient';
 
 
-const CommentForm = (props: {comments: CommentData[]}) => {
+const Comment = (props: {comments: CommentData[]}) => {
   const {comments} = props;
   return (
-    <div className="CommentBox">
+    <div className="Comment">
+      <h2>Comments</h2>
       {comments.map(comment => (
-        <div key={comment.id} className="CommentBox__comment">
-          <span> {comment.commenter} </span>
-          <span> {comment.content} </span>
+        <div key={comment.id} className="Comment__comment">
+          <span className="Comment__commenter"> {comment.commenter} </span>
+          <span className="Comment__content"> {comment.content} </span>
         </div>
       ))}
     </div>
   )
 }
-export { CommentForm };
+export { Comment };

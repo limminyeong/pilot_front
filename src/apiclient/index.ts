@@ -1,3 +1,4 @@
+
 const BASE_URL = "http://127.0.0.1:3000";
 
 export type ReviewData = {
@@ -11,6 +12,7 @@ export type ReviewData = {
   comments: CommentData[],
   created_at: string,
   updated_at: string,
+  password: string
 }
 
 export type ReviewList = {
@@ -47,7 +49,8 @@ async function getReview(id:number): Promise<ReviewData> {
     id: data.id,
     comments: data.comments,
     created_at: data.created_at,
-    updated_at: data.updated_at
+    updated_at: data.updated_at,
+    password: data.password
   }
 }
 
@@ -100,7 +103,7 @@ async function postReview(reviewValue: PostReviewData) {
 
 async function updateReview(reviewValue: PostReviewData, id:number) {
   const body = new FormData();
-  body.append("id", String(id));
+  body.append("id", JSON.stringify(id));
   body.append("title", reviewValue.title);
   body.append("author", reviewValue.author);
   body.append("category_id", String(reviewValue.categoryId));

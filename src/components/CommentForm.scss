@@ -1,0 +1,27 @@
+@import "../../styles.scss";
+.Comment {
+  text-align: left;
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.Comment__comment {
+  background-color: #f1f1f1;
+  margin-bottom: 8px;
+  .Comment__commenter {
+    display: inline-block;
+    width: 15%;
+    font-weight: bold;
+    vertical-align: top;
+  }
+  .Comment__content {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 85%;
+    vertical-align: top;
+    //padding: 4px 8px 4px 8px;
+    //border-bottom: 1px solid $pilot-grey;
+    //border-radius: 8px 8px 8px 8px;
+  }
+}

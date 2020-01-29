@@ -40,7 +40,7 @@ const CreateComment = (props: { addComment: (commentValue: PostCommentData) => P
             <ErrorMessage name="commenter" component="div" />
             <Field type="text" name="content" placeholder="따뜻한 한 마디는 작성자에게 힘이 됩니다." />
             <ErrorMessage name="content" component="div" />
-            <Field type="password" name="password" />
+            <Field type="password" name="password" placeholder="비밀번호"/>
             <ErrorMessage name="password" component="div" />
             <button type="submit" disabled={isSubmitting}>
               게시

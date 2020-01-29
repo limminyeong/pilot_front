@@ -1,0 +1,46 @@
+@import "../../styles.scss";
+
+.ReviewCard {
+  position: relative;
+  border: 1px solid $pilot-grey;
+  border-radius: 8px 8px 8px 8px;
+  margin-bottom: 40px;
+}
+
+.ReviewCard__header {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  height: 160px;
+
+  padding-top: 30px;
+
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid $pilot-grey;
+
+  .ReviewCard__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    filter: grayscale(100%) brightness(110%) blur(3px);
+  }
+  .ReviewCard__headercontent {
+    position: relative;
+  }
+
+  .ReviewCard__title {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.ReviewCard__body {
+  padding: 30px 30px 30px 30px;
+}
