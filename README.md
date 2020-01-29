@@ -4,7 +4,7 @@
 1. `create-react-app` typescript
 2. [React hooks](https://ko.reactjs.org/docs/hooks-overview.html)
 3. [React modal](http://reactcommunity.org/react-modal/)
-4. [Formik](https://jaredpalmer.com/formik/)
+4. [Formik](https://jaredpalmer.com/formik/) : tp에서 사용하고 있다 하여 사용했습니다. 폼 발리데이션 검사에 유용했습니다. 
 5. node-sass
 6. [react router](https://github.com/ReactTraining/react-router#readme)
 
@@ -33,24 +33,24 @@
 │   ├── App.test.tsx
 │   ├── App.tsx
 │   ├── apiclient
-│   │   └── index.ts
+│   │   └── index.ts //페치 함수들이 있습니다.
 │   ├── components  //기능하는 최소의 단위. 컨테이너에서 사용됩니다.
 │   │   ├── Button.scss
 │   │   ├── Button.tsx //서비스에서 사용되는 각종 버튼은 이것을 사용
 │   │   ├── Card.scss
-│   │   ├── Card.tsx
+│   │   ├── Card.tsx //메인 화면의 리뷰 카드들입니다.
 │   │   ├── CardList.scss
 │   │   ├── CardList.tsx
 │   │   ├── CheckModal.scss
 │   │   ├── CheckModal.tsx //리뷰 수정, 삭제 시 확인 모달
 │   │   ├── CommentForm.scss
-│   │   ├── CommentForm.tsx
+│   │   ├── CommentForm.tsx //코멘트들을 보여줍니다.
 │   │   ├── CreateComment.scss
 │   │   ├── CreateComment.tsx //코멘트를 작성합니다.
 │   │   ├── Header.scss
 │   │   ├── Header.tsx
 │   │   ├── LinkButton.scss
-│   │   ├── LinkButton.tsx
+│   │   ├── LinkButton.tsx //링크를 가진 버튼들
 │   │   ├── Pagenation.scss
 │   │   ├── Pagenation.tsx
 │   │   ├── ReviewCard.scss
