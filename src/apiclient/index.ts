@@ -21,12 +21,14 @@ export type ReviewList = {
 }
 
 export type CommentData = {
+  review_id: number,
   id: number,
   commenter: string,
   content: string,
   password: string,
 }
 
+//GET
 async function getReviews(page: number): Promise<ReviewList> {
   const res = await fetch(`${BASE_URL}/reviews?page=${page}`);
   const data = await res.json();
@@ -54,6 +56,7 @@ async function getReview(id:number): Promise<ReviewData> {
   }
 }
 
+//POST
 export type PostCommentData = {
   commenter: string,
   content: string,
@@ -101,6 +104,7 @@ async function postReview(reviewValue: PostReviewData) {
   return await res.json();
 }
 
+//PUT
 async function updateReview(reviewValue: PostReviewData, id:number) {
   const body = new FormData();
   body.append("id", JSON.stringify(id));
@@ -119,10 +123,36 @@ async function updateReview(reviewValue: PostReviewData, id:number) {
   return await res.json();
 }
 
+//DELETE
+async function deleteReview(value: {password:string}, id: number) {
+  const body = new FormData();
+  body.append("password", value.password);
+  const res = await fetch(`${BASE_URL}/reviews/${id}`, {
+    body,
+    method: "DELETE",
+  })
+  return await res.json();
+}
+
+async function deleteComment(value: {password:string}, reviewId: number, id: number) {
+  const body = new FormData();
+  body.append("password", value.password);
+  const res = await fetch(`${BASE_URL}/reviews/${reviewId}/comments/${id}`, {
+    body,
+    method: "DELETE",
+  })
+  if(res.status !== 200) {
+    return;
+  }
+  return res;
+}
+
 export default { 
   getReviews,
   getReview,
   postComment,
   postReview,
-  updateReview
+  updateReview,
+  deleteReview,
+  deleteComment
 };

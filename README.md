@@ -2,11 +2,11 @@
 ## 프론트 사용 스펙
 
 1. `create-react-app` typescript
-2. React hooks
-3. React modal
-4. Formik
+2. [React hooks](https://ko.reactjs.org/docs/hooks-overview.html)
+3. [React modal](http://reactcommunity.org/react-modal/)
+4. [Formik](https://jaredpalmer.com/formik/)
 5. node-sass
-6. react router
+6. [react router](https://github.com/ReactTraining/react-router#readme)
 
 ## 디렉토리 구조
 
@@ -99,6 +99,9 @@ npm start
 
 <img src="public/static/asset/userstory.jpg" alt="유저스토리"/>
 
+2. 달라진 점
+    * 랜딩페이지-헤더의 글쓰기 버튼은 헤더에서 분리하여 메인페이지에만 보이게 합니다. 
+
 ## 더 해보고 싶은 점
 
 우선순위에서 밀려 구현하지 않은 점들. 시간이 있다면 추가하고 싶습니다.
@@ -106,3 +109,6 @@ npm start
 1. 리뷰 데이터들 상태 관리
     * 리뷰를 수정할 때 원래 내용이 폼에 미리 들어가 있도록 하기
     * 작성중인 리뷰를 놓고 다른 페이지에 들어갔다 와도 내용 유지
+
+
+## Hooks, TS 사용 경험
