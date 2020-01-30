@@ -34,10 +34,6 @@ const Landing = () => {
     setPage(value);
   }
 
-  // const handleCategory = (value: number) => {
-  //   setCategory(value);
-  // }
-
   useEffect(() => {
     getReviewList(page, category);
   }, [page, category])
