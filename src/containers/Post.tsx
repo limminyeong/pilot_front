@@ -14,7 +14,7 @@ const Post = () => {
   }
   return (
     <div className="Post">
-      <ReviewForm handleReview={addReview} />
+      <ReviewForm handleReview={addReview} reviewData={null}/>
     </div>
   )
 }

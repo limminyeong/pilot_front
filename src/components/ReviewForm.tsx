@@ -7,11 +7,28 @@ import {
   Field,
   ErrorMessage,
 } from 'formik';
-import { PostReviewData } from '../apiclient'
+import { PostReviewData, ReviewData } from '../apiclient'
 
-const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Promise<void> }) => {
-  const { handleReview } = props;
-  const initialValues: PostReviewData = { title: "", author: "", password: "", content: "", imgUrl: "", categoryId: 1, hasSpoiler: false }
+const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Promise<void>, reviewData: ReviewData | null }) => {
+  const { handleReview, reviewData } = props;
+  const initialValues: PostReviewData = reviewData ?
+    {
+      title: reviewData.title,
+      author: reviewData.author,
+      password: reviewData.password,
+      content: reviewData.content,
+      imgUrl: reviewData.img_url,
+      categoryId: reviewData.category_id,
+      hasSpoiler: reviewData.has_spoiler
+    } : {
+      title: "",
+      author: "",
+      password: "",
+      content: "",
+      imgUrl: "",
+      categoryId: 1,
+      hasSpoiler: false
+    }
   const categories: { id: number, name: string }[] = [
     {
       id: 1,
@@ -61,11 +78,11 @@ const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Prom
         {({ isSubmitting }) => (
           <Form>
             <div className="ReviewForm__field">
-              <Field type="text" name="title" placeholder="제목" className="ReviewForm__title"/>
-              <ErrorMessage name="title" component="span" className="error"  />
+              <Field type="text" name="title" placeholder="제목" className="ReviewForm__title" />
+              <ErrorMessage name="title" component="span" className="error" />
             </div>
             <div className="ReviewForm__field">
-              <Field type="text" name="author" placeholder="작성자"  className="ReviewForm__author"/>
+              <Field type="text" name="author" placeholder="작성자" className="ReviewForm__author" />
               <ErrorMessage name="author" component="span" className="error" />
             </div>
             <div className="ReviewForm__field">
@@ -81,14 +98,14 @@ const ReviewForm = (props: { handleReview: (reviewValue: PostReviewData) => Prom
               </Field>
             </div>
             <div className="ReviewForm__field">
-              <Field as="textarea" name="content" rows={15} placeholder="내용"  className="ReviewForm__content"/>
+              <Field as="textarea" name="content" rows={15} placeholder="내용" className="ReviewForm__content" />
               <ErrorMessage name="content" component="span" className="error" />
             </div>
             <div className="ReviewForm__field">
-              <Field type="text" name="imgUrl" placeholder="이미지 주소를 넣어주세요"  className="ReviewForm__imgUrl"/>
+              <Field type="text" name="imgUrl" placeholder="이미지 주소를 넣어주세요" className="ReviewForm__imgUrl" />
             </div>
             <div className="ReviewForm__field">
-              <Field type="password" name="password" placeholder="비밀번호"  className="ReviewForm__password"/>
+              <Field type="password" name="password" placeholder="비밀번호" className="ReviewForm__password" />
               <ErrorMessage name="password" component="span" className="error" />
             </div>
             <button type="submit" disabled={isSubmitting} className="ReviewForm__submit">

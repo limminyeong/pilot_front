@@ -1,5 +1,5 @@
 
-const BASE_URL = "http://127.0.0.1:4000";
+const BASE_URL = "http://pilot-env.d63duja6z7.ap-northeast-2.elasticbeanstalk.com/";
 
 export type ReviewData = {
   title: string,
